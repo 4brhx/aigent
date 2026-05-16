@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useAppStore } from "@/lib/store";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
@@ -11,6 +12,19 @@ import { cn } from "@/lib/utils";
 
 export default function Home() {
   const { activePage, sidebarOpen } = useAppStore();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-foreground/20 border-t-foreground rounded-full animate-spin" />
+      </div>
+    );
+  }
 
   const renderPage = () => {
     switch (activePage) {
