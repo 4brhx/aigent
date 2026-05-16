@@ -1,0 +1,24 @@
+/* AIgent Design Tokens — Clean, No Blur | by IB */
+:root {
+  --bg:#f8f9fc; --bg-card:#fff; --bg-hover:#f0f1f5; --bg-active:#ece8fd;
+  --fg:#111827; --fg-2:#4b5563; --fg-3:#9ca3af;
+  --border:#e5e7eb; --primary:#7c3aed; --primary-hover:#6d28d9;
+  --primary-soft:#ede9fe; --accent:#0891b2; --success:#10b981; --danger:#ef4444;
+  --ring:0 0 0 3px rgba(124,58,237,.2);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.05); --shadow-md:0 4px 12px rgba(0,0,0,.08);
+  --shadow-lg:0 10px 30px rgba(0,0,0,.12);
+  --radius:12px; --radius-sm:8px; --radius-full:9999px;
+  --font:'IBM Plex Sans Arabic','Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+[data-theme="dark"] {
+  --bg:#0f0f17; --bg-card:#1a1a2e; --bg-hover:#222238; --bg-active:#2d2654;
+  --fg:#f3f4f6; --fg-2:#a1a1b5; --fg-3:#6b6b80;
+  --border:#2a2a3d; --primary:#a78bfa; --primary-hover:#8b5cf6; --primary-soft:#1e1640;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.3); --shadow-md:0 4px 12px rgba(0,0,0,.4); --shadow-lg:0 10px 30px rgba(0,0,0,.5);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{font-family:var(--font);background:var(--bg);color:var(--fg);-webkit-font-smoothing:antialiased}
+:focus-visible{outline:none;box-shadow:var(--ring);border-radius:var(--radius-sm)}
+.hidden{display:none!important}
