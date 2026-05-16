@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 11%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 0 0% 11%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 0 0% 53%;
+    --accent: 211 100% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 4 90% 58%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 211 100% 45%;
+    --radius: 12px;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-[20px] border border-white/20 shadow-glass;
+  }
+
+  .glass-panel-dark {
+    @apply bg-black/5 backdrop-blur-[20px] border border-black/5 shadow-glass;
+  }
+
+  .glass-card {
+    @apply bg-white rounded-2xl border border-border/50 shadow-card 
+           transition-all duration-300 ease-out
+           hover:shadow-card-hover hover:border-border;
+  }
+
+  .glass-button {
+    @apply bg-white/90 backdrop-blur-[10px] border border-border/50 
+           shadow-button rounded-xl px-4 py-2
+           transition-all duration-200 ease-out
+           hover:shadow-button-hover hover:bg-white active:scale-[0.98];
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent;
+  }
+
+  .status-dot {
+    @apply w-2 h-2 rounded-full animate-pulse-soft;
+  }
+
+  .status-dot-active {
+    @apply status-dot bg-success;
+  }
+
+  .status-dot-inactive {
+    @apply status-dot bg-muted-foreground/30;
+  }
+
+  .metric-value {
+    @apply text-headline font-semibold tracking-tight text-foreground;
+  }
+
+  .metric-label {
+    @apply text-body-sm text-muted-foreground;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-body-sm font-medium
+           text-muted-foreground transition-all duration-200
+           hover:bg-secondary hover:text-foreground;
+  }
+
+  .nav-item-active {
+    @apply nav-item bg-secondary text-foreground shadow-sm;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-border bg-white
+           text-body text-foreground placeholder:text-muted-foreground
+           transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-ring/20 focus:border-ring;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
