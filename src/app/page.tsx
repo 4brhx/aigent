@@ -1,10 +1,8 @@
-import dynamic from "next/dynamic";
+import NextDynamic from "next/dynamic";
 
-// Force dynamic rendering - skip static generation entirely
-export const revalidate = 0;
-export const dynamic_route = "force-dynamic";
+export const dynamic = "force-dynamic";
 
-const AppShell = dynamic(() => import("@/components/layout/AppShell"), {
+const AppShell = NextDynamic(() => import("@/components/layout/AppShell"), {
   ssr: false,
   loading: () => (
     <div className="min-h-screen bg-white flex items-center justify-center">
